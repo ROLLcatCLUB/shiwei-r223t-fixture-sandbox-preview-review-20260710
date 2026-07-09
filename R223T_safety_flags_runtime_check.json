@@ -1,0 +1,30 @@
+{
+  "stage_id": "1013R_R223T_FIXTURE_ONLY_SANDBOX_PREVIEW",
+  "status": "fixture_only_static_preview",
+  "schema_v0_2_published": false,
+  "fixture_only": true,
+  "non_persistent_preview": true,
+  "teacher_confirmed": false,
+  "formal_apply_allowed": false,
+  "lesson_body_writeback": false,
+  "r97b_modified": false,
+  "formal_route_added": false,
+  "frontend_backend_modified": false,
+  "runtime_connected": false,
+  "provider_model_connected": false,
+  "prompt_modified": false,
+  "database_written": false,
+  "existing_teacher_drafts_modified": false,
+  "r222d_component_library_modified": false,
+  "formal_apply": false,
+  "page_controls": {
+    "publish": false,
+    "save": false,
+    "apply": false,
+    "run_model": false,
+    "writeback": false,
+    "execute_component": false
+  },
+  "next_allowed": "1013R_R223U_SANDBOX_TEACHER_REVIEW"
+}
+

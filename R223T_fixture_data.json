@@ -1,0 +1,132 @@
+{
+  "stage_id": "1013R_R223T_FIXTURE_ONLY_SANDBOX_PREVIEW",
+  "status": "fixture_only_sandbox_preview",
+  "source_stages": [
+    "R223P-5",
+    "R223Q",
+    "R223R",
+    "R223S"
+  ],
+  "safety": {
+    "schema_v0_2_published": false,
+    "fixture_only": true,
+    "non_persistent_preview": true,
+    "teacher_confirmed": false,
+    "formal_apply_allowed": false,
+    "lesson_body_writeback": false,
+    "r97b_modified": false,
+    "runtime_connected": false,
+    "provider_model_connected": false,
+    "prompt_modified": false,
+    "database_written": false
+  },
+  "samples": [
+    {
+      "sample_id": "M_stationery",
+      "title": "我为文具代言 第三阶段 智造·新朋友",
+      "route": {
+        "unit_phase_role": "practice_creation",
+        "lesson_position_in_unit": "late",
+        "practice_intensity": "high",
+        "student_work_time_ratio": "high",
+        "teacher_support_density": "heavy"
+      },
+      "v0_1_baseline": "能形成课时定位和活动流程，但实践强度、教师巡看、过程证据和单元任务连接主要靠人工解释。",
+      "v0_2_candidate_delta": "明确把本课识别为后段实践创作课，教师稿加重 1+1 到 1+n 的创作推进、材料理由、过程照片、调整记录和赠笔语证据。",
+      "teacher_default_draft": "本课处在《我为文具代言》单元后段，学生已经经历了文具观察、文具故事和结构探究，本节课要把“文具结构服务使用”的认识转化为真实改造。课堂重心不再是长时间讲解，而是让学生带着一个小问题进入设计、尝试、调整、展示。教学过程中，教师先唤醒学生对毛笔工序和文具结构的认识，再引导学生像设计师一样提出一个小问题和一个小办法。1+1 合作小设计用于降低创作门槛，1+n 文具大变身则要求学生用材料选择、结构调整和展示说明证明自己的设计不是单纯装饰。展示时，学生用“原来……我用了……现在可以……”介绍文具新朋友，赠笔语和使用建议进入后续购买文具建议书与课堂使用指南。",
+      "review_ledger_summary": {
+        "event_count": 5,
+        "primary_patterns": [
+          "observation_discovery",
+          "idea_generation",
+          "micro_practice",
+          "creation_progression",
+          "showcase_evaluation"
+        ],
+        "component_statuses": {
+          "already_registered": 4,
+          "new_surface_candidate": 1
+        },
+        "screen_sheet_evidence": [
+          "毛笔工序图和文具结构圈画",
+          "文具小巧思案例",
+          "装饰与功能对比",
+          "盘绕技法和材料选择对比",
+          "展示句式和单元任务标题"
+        ]
+      }
+    },
+    {
+      "sample_id": "N_paper_print",
+      "title": "有趣的纸印",
+      "route": {
+        "unit_phase_role": "technique_preparation",
+        "lesson_position_in_unit": "middle",
+        "practice_intensity": "medium",
+        "student_work_time_ratio": "medium",
+        "teacher_support_density": "normal"
+      },
+      "v0_1_baseline": "能写出纸材观察、试印和展评流程，但对材料预测、技法小练和试印证据的分层不够稳定。",
+      "v0_2_candidate_delta": "把本课识别为材料与技法准备课，教师稿聚焦纸材预测、可印肌理、小块试印、印法比较和作品说明，避免扩成重创作。",
+      "teacher_default_draft": "本课是纸印学习中的材料与技法准备课。学生要从“纸可以做造型”转向“纸材、肌理和印法会留下不同印痕”。课堂需要观察、试验和小幅作品，但不应扩成过重的大创作。教师先通过普通绘画作品和纸印作品对比，让学生发现重复、压印、留白和肌理痕迹；再让学生摸一摸不同纸材，预测哪一种更可能留下明显印痕。随后，学生通过刻、剪、撕、揉、卷、折或拼贴制造可印肌理，完成小块试印并圈出最有证据的一处。最后，作品和试印记录一起展评，学生必须说清用了什么纸材、试了什么印法、留下了什么印痕。",
+      "review_ledger_summary": {
+        "event_count": 5,
+        "primary_patterns": [
+          "observation_discovery",
+          "material_experiment",
+          "teacher_demonstration",
+          "micro_practice",
+          "showcase_evaluation"
+        ],
+        "component_statuses": {
+          "already_registered": 3,
+          "candidate_from_R222D_pool": 2
+        },
+        "screen_sheet_evidence": [
+          "普通绘画与纸印作品对比",
+          "纸材触摸与预测记录",
+          "可印肌理示范",
+          "少量上色和慢揭纸步骤图",
+          "作品与试印记录同屏展评"
+        ]
+      }
+    },
+    {
+      "sample_id": "O_color_collision",
+      "title": "色彩的碰撞",
+      "route": {
+        "unit_phase_role": "intro_understanding",
+        "lesson_position_in_unit": "early",
+        "practice_intensity": "medium",
+        "student_work_time_ratio": "medium",
+        "teacher_support_density": "normal"
+      },
+      "v0_1_baseline": "能描述校园取色和调色实验，但容易把色彩课写成通用实验流程，单元早段的理解导入责任不够清楚。",
+      "v0_2_candidate_delta": "把本课识别为早段色彩感知与实验课，教师稿保留校园取色、红黄蓝起点、两色相碰、同色差异和色彩表达，不扩成大制作。",
+      "teacher_default_draft": "本课位于色彩单元早段，重点是让学生从校园色彩进入红、黄、蓝调色实验，发现颜色变化和画面感受。它需要实验和记录，但不是完整大创作课。教师先出示校园色彩照片，请学生找红、黄、蓝和身边不容易说出名字的颜色，再引出“只用三种颜色能不能变出更多颜色”的问题。学生用红黄蓝进行两色调和，圈出一次最清楚的调色结果，并比较同样叫绿色或橙色的样本为什么有明暗、冷暖和偏向差异。最后，每组选一块代表色命名，用“它由……和……碰出来，让我想到……”介绍色彩发现。",
+      "review_ledger_summary": {
+        "event_count": 5,
+        "primary_patterns": [
+          "observation_discovery",
+          "material_experiment",
+          "comparison_judgment",
+          "appreciation_scaffold",
+          "showcase_evaluation"
+        ],
+        "component_statuses": {
+          "already_registered": 2,
+          "candidate_from_R222D_pool": 2,
+          "new_surface_candidate": 1
+        },
+        "screen_sheet_evidence": [
+          "校园色彩照片",
+          "红黄蓝实验规则",
+          "两色调和记录",
+          "同色差异对比",
+          "色彩命名和表达句式"
+        ]
+      }
+    }
+  ]
+}
+

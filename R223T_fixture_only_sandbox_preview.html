@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>R223T Fixture-only Sandbox Preview</title>
+  <style>
+    :root {
+      --ink: #21332f;
+      --muted: #60736e;
+      --line: #d8e5e0;
+      --soft: #f6faf8;
+      --panel: #ffffff;
+      --brand: #247967;
+      --warn: #9a5a00;
+      --warn-bg: #fff6df;
+      --blue: #34699a;
+      --blue-bg: #edf5fb;
+      --shadow: 0 12px 30px rgba(22, 54, 47, 0.08);
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      color: var(--ink);
+      background: #eef5f2;
+      line-height: 1.7;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 5;
+      background: rgba(255, 255, 255, 0.94);
+      border-bottom: 1px solid var(--line);
+      backdrop-filter: blur(10px);
+    }
+
+    .topbar {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 16px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .title h1 {
+      margin: 0;
+      font-size: 20px;
+      letter-spacing: 0;
+      color: var(--brand);
+    }
+
+    .title p {
+      margin: 2px 0 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    .flags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      font-size: 12px;
+    }
+
+    .flag {
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      padding: 4px 10px;
+      background: var(--soft);
+      color: var(--muted);
+      white-space: nowrap;
+    }
+
+    .banner {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 10px 24px 16px;
+    }
+
+    .banner-inner {
+      background: var(--warn-bg);
+      border: 1px solid #efd59b;
+      color: #674100;
+      padding: 10px 14px;
+      border-radius: 8px;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    main {
+      max-width: 1400px;
+      margin: 0 auto;
+      padding: 22px 24px 36px;
+    }
+
+    .sample-tabs {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 16px;
+    }
+
+    .sample-tabs button {
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--ink);
+      border-radius: 8px;
+      padding: 8px 12px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .sample-tabs button.active {
+      background: var(--brand);
+      color: #fff;
+      border-color: var(--brand);
+    }
+
+    .layout {
+      display: grid;
+      grid-template-columns: minmax(220px, 0.8fr) minmax(420px, 1.35fr) minmax(260px, 0.9fr);
+      gap: 16px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--panel);
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .panel h2 {
+      margin: 0;
+      padding: 14px 16px;
+      font-size: 16px;
+      border-bottom: 1px solid var(--line);
+      background: #fbfdfc;
+    }
+
+    .panel-body {
+      padding: 15px 16px 18px;
+    }
+
+    .meta-grid {
+      display: grid;
+      gap: 8px;
+      font-size: 13px;
+    }
+
+    .meta-row {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2px;
+      padding: 8px 0;
+      border-bottom: 1px dashed #d8e4df;
+    }
+
+    .meta-row span:first-child {
+      color: var(--muted);
+      font-size: 12px;
+      overflow-wrap: anywhere;
+    }
+
+    .meta-row strong {
+      overflow-wrap: anywhere;
+    }
+
+    .compare {
+      display: grid;
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .compare-box {
+      border-left: 4px solid var(--blue);
+      background: var(--blue-bg);
+      padding: 10px 12px;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    .compare-box strong {
+      display: block;
+      color: var(--blue);
+      margin-bottom: 4px;
+    }
+
+    .draft h2 {
+      font-size: 18px;
+    }
+
+    .draft-title {
+      padding: 16px 18px 0;
+    }
+
+    .draft-title h3 {
+      margin: 0;
+      font-size: 22px;
+      color: var(--brand);
+    }
+
+    .draft-title p {
+      margin: 4px 0 0;
+      color: var(--muted);
+      font-size: 13px;
+    }
+
+    .draft-text {
+      padding: 16px 18px 20px;
+      font-size: 15px;
+    }
+
+    .draft-text p {
+      margin: 0 0 12px;
+    }
+
+    .ledger-note {
+      background: #f8fbfa;
+      border-left: 4px solid var(--brand);
+      padding: 10px 12px;
+      border-radius: 6px;
+      color: var(--muted);
+      font-size: 13px;
+      margin-bottom: 12px;
+    }
+
+    .pill-list {
+      display: flex;
+      gap: 6px;
+      flex-wrap: wrap;
+      margin: 8px 0 14px;
+    }
+
+    .pill {
+      padding: 4px 8px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--soft);
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .status-count {
+      display: grid;
+      gap: 8px;
+      margin: 10px 0 14px;
+      font-size: 13px;
+    }
+
+    .status-count div {
+      display: flex;
+      justify-content: space-between;
+      gap: 10px;
+      border-bottom: 1px dashed #d8e4df;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      padding-left: 18px;
+      margin: 8px 0 0;
+    }
+
+    li { margin-bottom: 4px; }
+
+    .footer-note {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--muted);
+      text-align: center;
+    }
+
+    @media (max-width: 1100px) {
+      .layout {
+        grid-template-columns: 1fr;
+      }
+      header { position: static; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="topbar">
+      <div class="title">
+        <h1>师维智教 · R223T fixture-only sandbox preview</h1>
+        <p>v0.1 / v0.2 candidate 对照预览 · 独立静态页 · 不接正式备课室</p>
+      </div>
+      <div class="flags">
+        <span class="flag">fixture_only=true</span>
+        <span class="flag">non_persistent_preview=true</span>
+        <span class="flag">teacher_confirmed=false</span>
+        <span class="flag">formal_apply_allowed=false</span>
+      </div>
+    </div>
+    <div class="banner">
+      <div class="banner-inner">Preview only. v0.2 candidate is not published. No lesson body writeback.</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="sample-tabs" id="tabs"></div>
+
+    <section class="layout">
+      <aside class="panel">
+        <h2>对照与强度路由</h2>
+        <div class="panel-body">
+          <div class="meta-grid" id="routeMeta"></div>
+          <div class="compare">
+            <div class="compare-box">
+              <strong>v0.1 baseline</strong>
+              <span id="baseline"></span>
+            </div>
+            <div class="compare-box">
+              <strong>v0.2 candidate delta</strong>
+              <span id="delta"></span>
+            </div>
+          </div>
+        </div>
+      </aside>
+
+      <article class="panel draft">
+        <div class="draft-title">
+          <h3 id="draftTitle"></h3>
+          <p>教师默认稿预览：成熟教案文稿优先，不显示后端字段墙。</p>
+        </div>
+        <div class="draft-text" id="draftText"></div>
+      </article>
+
+      <aside class="panel">
+        <h2>Review-only ledger 摘要</h2>
+        <div class="panel-body">
+          <div class="ledger-note">Review-only metadata. Not executable. Not written back.</div>
+          <div class="meta-row"><span>event count</span><strong id="eventCount"></strong></div>
+          <p><strong>primary patterns</strong></p>
+          <div class="pill-list" id="patterns"></div>
+          <p><strong>component trigger status</strong></p>
+          <div class="status-count" id="componentStatuses"></div>
+          <p><strong>screen / sheet / evidence mapping</strong></p>
+          <ul id="mapping"></ul>
+        </div>
+      </aside>
+    </section>
+
+    <p class="footer-note">R223T is a local/static review preview only. It creates no formal route and changes no R97B files.</p>
+  </main>
+
+  <script>
+    const data = {
+      samples: [
+        {
+          sample_id: "M_stationery",
+          title: "我为文具代言 第三阶段 智造·新朋友",
+          route: { unit_phase_role: "practice_creation", lesson_position_in_unit: "late", practice_intensity: "high", student_work_time_ratio: "high", teacher_support_density: "heavy" },
+          v0_1_baseline: "能形成课时定位和活动流程，但实践强度、教师巡看、过程证据和单元任务连接主要靠人工解释。",
+          v0_2_candidate_delta: "明确把本课识别为后段实践创作课，教师稿加重 1+1 到 1+n 的创作推进、材料理由、过程照片、调整记录和赠笔语证据。",
+          teacher_default_draft: [
+            "本课处在《我为文具代言》单元后段，学生已经经历了文具观察、文具故事和结构探究，本节课要把“文具结构服务使用”的认识转化为真实改造。",
+            "课堂重心不再是长时间讲解，而是让学生带着一个小问题进入设计、尝试、调整、展示。教师先唤醒学生对毛笔工序和文具结构的认识，再引导学生像设计师一样提出一个小问题和一个小办法。",
+            "1+1 合作小设计用于降低创作门槛，1+n 文具大变身则要求学生用材料选择、结构调整和展示说明证明自己的设计不是单纯装饰。展示时，学生用“原来……我用了……现在可以……”介绍文具新朋友，赠笔语和使用建议进入后续购买文具建议书与课堂使用指南。"
+          ],
+          review_ledger_summary: {
+            event_count: 5,
+            primary_patterns: ["observation_discovery", "idea_generation", "micro_practice", "creation_progression", "showcase_evaluation"],
+            component_statuses: { already_registered: 4, new_surface_candidate: 1 },
+            screen_sheet_evidence: ["毛笔工序图和文具结构圈画", "文具小巧思案例", "装饰与功能对比", "盘绕技法和材料选择对比", "展示句式和单元任务标题"]
+          }
+        },
+        {
+          sample_id: "N_paper_print",
+          title: "有趣的纸印",
+          route: { unit_phase_role: "technique_preparation", lesson_position_in_unit: "middle", practice_intensity: "medium", student_work_time_ratio: "medium", teacher_support_density: "normal" },
+          v0_1_baseline: "能写出纸材观察、试印和展评流程，但对材料预测、技法小练和试印证据的分层不够稳定。",
+          v0_2_candidate_delta: "把本课识别为材料与技法准备课，教师稿聚焦纸材预测、可印肌理、小块试印、印法比较和作品说明，避免扩成重创作。",
+          teacher_default_draft: [
+            "本课是纸印学习中的材料与技法准备课。学生要从“纸可以做造型”转向“纸材、肌理和印法会留下不同印痕”。课堂需要观察、试验和小幅作品，但不应扩成过重的大创作。",
+            "教师先通过普通绘画作品和纸印作品对比，让学生发现重复、压印、留白和肌理痕迹；再让学生摸一摸不同纸材，预测哪一种更可能留下明显印痕。",
+            "随后，学生通过刻、剪、撕、揉、卷、折或拼贴制造可印肌理，完成小块试印并圈出最有证据的一处。最后，作品和试印记录一起展评，学生必须说清用了什么纸材、试了什么印法、留下了什么印痕。"
+          ],
+          review_ledger_summary: {
+            event_count: 5,
+            primary_patterns: ["observation_discovery", "material_experiment", "teacher_demonstration", "micro_practice", "showcase_evaluation"],
+            component_statuses: { already_registered: 3, candidate_from_R222D_pool: 2 },
+            screen_sheet_evidence: ["普通绘画与纸印作品对比", "纸材触摸与预测记录", "可印肌理示范", "少量上色和慢揭纸步骤图", "作品与试印记录同屏展评"]
+          }
+        },
+        {
+          sample_id: "O_color_collision",
+          title: "色彩的碰撞",
+          route: { unit_phase_role: "intro_understanding", lesson_position_in_unit: "early", practice_intensity: "medium", student_work_time_ratio: "medium", teacher_support_density: "normal" },
+          v0_1_baseline: "能描述校园取色和调色实验，但容易把色彩课写成通用实验流程，单元早段的理解导入责任不够清楚。",
+          v0_2_candidate_delta: "把本课识别为早段色彩感知与实验课，教师稿保留校园取色、红黄蓝起点、两色相碰、同色差异和色彩表达，不扩成大制作。",
+          teacher_default_draft: [
+            "本课位于色彩单元早段，重点是让学生从校园色彩进入红、黄、蓝调色实验，发现颜色变化和画面感受。它需要实验和记录，但不是完整大创作课。",
+            "教师先出示校园色彩照片，请学生找红、黄、蓝和身边不容易说出名字的颜色，再引出“只用三种颜色能不能变出更多颜色”的问题。",
+            "学生用红黄蓝进行两色调和，圈出一次最清楚的调色结果，并比较同样叫绿色或橙色的样本为什么有明暗、冷暖和偏向差异。最后，每组选一块代表色命名，用“它由……和……碰出来，让我想到……”介绍色彩发现。"
+          ],
+          review_ledger_summary: {
+            event_count: 5,
+            primary_patterns: ["observation_discovery", "material_experiment", "comparison_judgment", "appreciation_scaffold", "showcase_evaluation"],
+            component_statuses: { already_registered: 2, candidate_from_R222D_pool: 2, new_surface_candidate: 1 },
+            screen_sheet_evidence: ["校园色彩照片", "红黄蓝实验规则", "两色调和记录", "同色差异对比", "色彩命名和表达句式"]
+          }
+        }
+      ]
+    };
+
+    const tabs = document.getElementById("tabs");
+    const routeMeta = document.getElementById("routeMeta");
+    const baseline = document.getElementById("baseline");
+    const delta = document.getElementById("delta");
+    const draftTitle = document.getElementById("draftTitle");
+    const draftText = document.getElementById("draftText");
+    const eventCount = document.getElementById("eventCount");
+    const patterns = document.getElementById("patterns");
+    const componentStatuses = document.getElementById("componentStatuses");
+    const mapping = document.getElementById("mapping");
+
+    function render(index) {
+      const sample = data.samples[index];
+      [...tabs.children].forEach((btn, i) => btn.classList.toggle("active", i === index));
+      routeMeta.innerHTML = Object.entries(sample.route).map(([key, value]) => `<div class="meta-row"><span>${key}</span><strong>${value}</strong></div>`).join("");
+      baseline.textContent = sample.v0_1_baseline;
+      delta.textContent = sample.v0_2_candidate_delta;
+      draftTitle.textContent = sample.title;
+      draftText.innerHTML = sample.teacher_default_draft.map(paragraph => `<p>${paragraph}</p>`).join("");
+      eventCount.textContent = sample.review_ledger_summary.event_count;
+      patterns.innerHTML = sample.review_ledger_summary.primary_patterns.map(item => `<span class="pill">${item}</span>`).join("");
+      componentStatuses.innerHTML = Object.entries(sample.review_ledger_summary.component_statuses)
+        .map(([key, value]) => `<div><span>${key}</span><strong>${value}</strong></div>`).join("");
+      mapping.innerHTML = sample.review_ledger_summary.screen_sheet_evidence.map(item => `<li>${item}</li>`).join("");
+    }
+
+    data.samples.forEach((sample, index) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.textContent = sample.title;
+      button.addEventListener("click", () => render(index));
+      tabs.appendChild(button);
+    });
+
+    render(0);
+  </script>
+</body>
+</html>
